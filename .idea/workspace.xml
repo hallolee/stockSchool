@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="966cb3c1-a4a3-494d-b2dd-2c1ceca67235" name="Default" comment="" />
+    <ignored path="ykd.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="ykd" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Application/Backend/Controller/CustomerController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Backend/Model/CustomerModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Merchant/Model/WalletModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Backend/Controller/WithdrawController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Merchant/Controller/WalletController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Common/function.php" />
+        <option value="$PROJECT_DIR$/Application/Backend/Controller/DragonController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Merchant/Controller/DragonController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Merchant/Controller/ClientController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/WePay/cimarkdown.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/LibWechatPay/cimarkdown.php" />
+        <option value="$PROJECT_DIR$/Application/Merchant/Controller/MdController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Merchant/Controller/ProfileController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Backend/Controller/ProductApiController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/CustomerController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/DragonController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/BasicInfoModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/CustomerModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php" />
+        <option value="$USER_HOME$/AppData/Local/Temp/scp09480/data/StockSchool/Application/Common/Conf/config.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/SystemModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Model/HomeModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Controller/CommonController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Controller/LoginRegController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/ClientModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Common/ifunction.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Common/ifunction.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Model/ProfileModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/constant.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Controller/HomeController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/ClassroomModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/ProfileModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Model/ClassroomModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Controller/ClassroomController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/ClassroomController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/HomeModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/HomeController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/AuthRuleModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Model/ManageModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/ProfileController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/LoginController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/CheckController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Controller/ProfileController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/config.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/dev.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/SystemController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/SystemController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/errcode.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/UserController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Client/Controller/LoginController.class.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1378" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Problems" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches">
+        <subPane />
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files" />
+        <subPane subId="Tests" />
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockSchool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="d:\Programs\nodejs\node.exe" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\WWW\ykd\Application\Client\Model" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\WWW\StockSchool\Application\Admin\Controller" />
+      <recent name="F:\WWW\StockSchool\Application\Client\Model" />
+      <recent name="F:\WWW\StockSchool\Application\Client\Controller" />
+      <recent name="F:\WWW\StockSchool\Application\Admin\Model" />
+      <recent name="F:\WWW\stockSchool\Application\Admin\Model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="966cb3c1-a4a3-494d-b2dd-2c1ceca67235" name="Default" comment="" />
+      <created>1498531109339</created>
+      <option name="number" value="Default" />
+      <updated>1498531109339</updated>
+      <workItem from="1498531110857" duration="89047000" />
+      <workItem from="1499046104750" duration="5348000" />
+      <workItem from="1499149469258" duration="49067000" />
+      <workItem from="1499392963583" duration="24769000" />
+      <workItem from="1499440496447" duration="65822000" />
+      <workItem from="1499827900670" duration="56235000" />
+      <workItem from="1500011094590" duration="25153000" />
+      <workItem from="1500089350664" duration="2696000" />
+      <workItem from="1500254198391" duration="44655000" />
+      <workItem from="1500430781693" duration="30734000" />
+      <workItem from="1500875244053" duration="2958000" />
+      <workItem from="1500882856763" duration="26370000" />
+      <workItem from="1501812508466" duration="176000" />
+      <workItem from="1502089404181" duration="2386000" />
+      <workItem from="1502414300280" duration="9198000" />
+      <workItem from="1502759494263" duration="83000" />
+      <workItem from="1502786602149" duration="5525000" />
+      <workItem from="1506681962491" duration="259000" />
+      <workItem from="1506688665711" duration="1708000" />
+      <workItem from="1507899463534" duration="1416000" />
+      <workItem from="1508299037783" duration="1278000" />
+      <workItem from="1508409389986" duration="1689000" />
+      <workItem from="1508737641073" duration="1284000" />
+      <workItem from="1508928879969" duration="731000" />
+      <workItem from="1509333418453" duration="618000" />
+      <workItem from="1510286531765" duration="132000" />
+      <workItem from="1511430131226" duration="7795000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="457132000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3190184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05400982" sideWeight="0.5741556" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23343849" sideWeight="0.42584434" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="60" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core_d.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8461537">
+          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/gd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3076925">
+          <caret line="248" column="9" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
