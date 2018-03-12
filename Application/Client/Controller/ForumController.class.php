@@ -385,7 +385,7 @@ END:
             'type'      =>  M_FORUM,
             'atime'     =>  time(),
             'title'     =>  $file_exist['title'],
-            'location'  =>  isset($location_pid)?$location_pid+1:$location[0]['num']+1,
+            'location'  =>  isset($location_pid)?$location_pid:$location[0]['num'],
         ];
         $res_msg = D('Client/Message')->addMessage($msg_data);
         $res_inc = D('Client/Message')->incMessage(['field'=>'forum_n','value'=>1],['uid'=>$file_exist['uid']]);
@@ -395,7 +395,6 @@ STEP:
 END:
         $this->retReturn($ret);
     }
-
 
     /**
      * 帖子评论列表
