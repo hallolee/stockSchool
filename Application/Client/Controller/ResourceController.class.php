@@ -756,7 +756,13 @@ END:
 
         if($this->out['uid']){
             //用户的角色
-            $user_role_info = D('Admin/AuthRule')->selectAuthGroupAccess('',['uid'=>$this->out['uid']]);
+            $user_role_info = D('Admin/System')->selectUserRole(
+                '',
+                [
+                    'uid'=>$this->out['uid'],
+                    'system'=>SYS_OK
+                ]
+            );
             foreach($user_role_info as $v){
                 if($v['group_id'])
                     $where['role_show'][] = ['like','%,'.$v['group_id'].',%'];
@@ -811,26 +817,34 @@ END:
         $role_show = [];
 
         //可查看该文件的 的角色
+
+        //用户的角色
+        $user_role_info = D('Admin/System')->selectUserRole(
+            '',
+            [
+                'uid'=>$this->out['uid'],
+                'system'=>SYS_OK
+            ]
+        );
         if($res['role_show'] == ',0,'){
             goto END;
         }elseif($res['role_show'] == ',-1,'){
             goto SHOW;
         }
         else{
+
             if($this->out['uid']){
-                $roles_dn = explode(',',$res['role_show']);
-                //用户的角色
-                $user_role_info = D('Admin/AuthRule')->selectAuthGroupAccess('',['uid'=>$this->out['uid']]);
-                $group_id = [];
-                foreach($user_role_info as $v){
-                    $group_id[] = $v['group_id'];
-                }
-                $cd = array_intersect ($roles_dn,$group_id);
-                if(!$cd)
+                  $roles_dn = explode(',',$res['role_show']);
+                  $group_id = [];
+                    foreach($user_role_info as $v){
+                        $group_id[] = $v['group_id'];
+                    }
+                    $cd = array_intersect ($roles_dn,$group_id);
+                    if(!$cd)
+                        goto END;
+                }else{
                     goto END;
-            }else{
-                goto END;
-            }
+                }
         }
 
 SHOW:
@@ -861,8 +875,6 @@ SHOW:
                 if($this->out['uid']){
                     //可阅读该文件的 的角色
                     $roles = explode(',',$res['role_read']);
-                    //用户的角色
-                    $user_role_info = D('Admin/AuthRule')->selectAuthGroupAccess('',['uid'=>$this->out['uid']]);
                     $group_id = [];
                     foreach($user_role_info as $v){
                         $group_id[] = $v['group_id'];
@@ -884,8 +896,6 @@ SHOW:
             if($this->out['uid']){
                 //可下载该文件的 的角色
                 $roles_dn = explode(',',$res['role_download']);
-                //用户的角色
-                $user_role_info = D('Admin/AuthRule')->selectAuthGroupAccess('',['uid'=>$this->out['uid']]);
                 $group_id = [];
                 foreach($user_role_info as $v){
                     $group_id[] = $v['group_id'];
