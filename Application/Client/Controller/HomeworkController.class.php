@@ -989,7 +989,7 @@ END:
         $d['uid'] = $this->out['uid'];
         $d['atime'] = $t;
 
-        $stu_info =  $this->model->findReply('uid',['id'=>$raw['reply_id']]);
+        $stu_info =  $this->model->findReply('id,uid',['id'=>$raw['reply_id']]);
 
         if(!$tea_info){
             $add_reply = $this->model->addReply($d);
@@ -1016,14 +1016,11 @@ END:
             $edit_student = $this->model->editHomeworkRecord(['status'=>1],['uid' => $stu_info['uid'],'pid'=>$raw['id']]);
             $this->model->decHomework(['field'=>'judging','value'=>1],['id'=>$id]);
 
-        }
-
-
         //通知消息
         $msg_data = [
             'uid_from'  =>  $this->out['uid'],
             'uid_to'    =>  $stu_info['uid'],
-            'reply_id'  =>  $add_reply,
+            'reply_id'  =>  $stu_info['id'],
             'pid'       =>  $id,
             'type'      =>  M_HWK_TE,
             'atime'     =>  time(),
@@ -1033,6 +1030,7 @@ END:
         $res_msg = D('Client/Message')->addMessage($msg_data);
         $res_inc = D('Client/Message')->incMessage(['field'=>'hwk_n','value'=>1],['uid'=>$stu_info['uid']]);
 
+        }
         $ret['status'] = E_OK;
         $ret['id']     = $add_reply;
 END:
