@@ -882,7 +882,7 @@ END:
 
         $total = $this->modelProfile1->selectClientLimit(
             'count(*) total',
-            ['teacher_uid'=>$this->out['uid']],
+            ['teacher_uid'=>['gt',0]],
             '')
         ;
 
