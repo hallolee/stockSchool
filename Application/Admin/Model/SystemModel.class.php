@@ -122,6 +122,17 @@ class SystemModel extends GlobalModel
         return $re;
     }
 
+    public function selectUserRole( $column = '',$where = '')
+    {
+
+        $re = M(TROLE_USER)
+            ->field($column)
+            ->where($where)
+            ->select();
+
+        return $re;
+    }
+
     public function delRoleGroupUser( $where = '')
     {
 

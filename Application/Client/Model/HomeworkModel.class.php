@@ -273,7 +273,7 @@ class HomeworkModel extends GlobalModel
         $re = M( THWK_RECORD )
             ->alias('b')
             ->field( $column )
-            ->join('INNER JOIN '.THWK_R.' a on b.pid = a.pid and a.reply_id = 0 and a.uid = b.uid')
+            ->join('LEFT JOIN '.THWK_R.' a on b.pid = a.pid and a.reply_id = 0 and a.uid = b.uid')
             ->where( $where )
             ->limit( $limit )
             ->order( $order )

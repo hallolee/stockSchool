@@ -51,7 +51,7 @@ class HomeworkController extends GlobalController{
         if(isset($raw['status'])){
             switch($raw['status']){
                 case 1:
-                    $where['b.status']= ['neq',HWK_UNDO];
+                    $where['b.status']= HWK_DID;
                     break;
                 case 2:
                     $where['b.status']= HWK_UNDO;
@@ -831,6 +831,7 @@ END:
             'uid_from'  =>  $this->out['uid'],
             'uid_to'    =>  $file_exist['uid'],
             'reply_id'  =>  $add_reply,
+            'pid'       =>  $id,
             'type'      =>  M_HWK,
             'atime'     =>  time(),
             'title'     =>  $file_exist['title'],
@@ -1023,7 +1024,8 @@ END:
             'uid_from'  =>  $this->out['uid'],
             'uid_to'    =>  $stu_info['uid'],
             'reply_id'  =>  $add_reply,
-            'type'      =>  M_HWK,
+            'pid'       =>  $id,
+            'type'      =>  M_HWK_TE,
             'atime'     =>  time(),
             'title'     =>  $file_exist['title'],
             'location'  =>  1,
@@ -1222,7 +1224,7 @@ END:
         $uid = $uid_complete = $reply_data = [];
         foreach ($res as $val) {
             $review_id[] = $val['id'];
-            $uid[] = $val['uid'];
+            $uid[] = $val['suid'];
         }
 
         //作业
@@ -1237,24 +1239,11 @@ END:
         $uid_all = explode(',',$exist['suid']);
         array_shift($uid_all);
         array_pop($uid_all);
+        $ret['total'] = count($uid_all);
 
+        $user = \Common\getUserInfo($uid_all);
         if (isset($res) && !empty($res)) {
-            $user_res = D('Profile')->selectClient('uid,icon,name,nickname,level_id', ['uid' => ['in', $uid_all]]);
-            $user = [];
-            if ($user_res)
-                foreach ($user_res as $val) {
-                    $user[$val['uid']] = [
-                        'uid'   =>  $val['uid'],
-                        'name'  =>  $val['name'],
-                        'level'  =>  $star[$val['level_id']],
-                        'nickname'  =>  $val['nickname'],
-                        'icon'   =>  \Common\GetCompleteUrl($val['icon'])
-                    ];
-                }
-
             foreach ($res as $k=>$val) {
-
-                $uid_complete[] = $val['suid'];
                 if($val['img_info'])
                     $img_temp = $this->getImg($val['img_info']);
                 if($val['sstatus'] == 2 ){
@@ -1264,7 +1253,7 @@ END:
                 }
                 $temp = [
                     'id'   => $val['id'],
-                    'uid'  => $val['uid'],
+                    'uid'  => $val['suid'],
                     'content' => $val['content'],
                     'atime'   => $val['atime'],
                     'judge'   => $val['judge'],
@@ -1281,23 +1270,37 @@ END:
 
             }
         }
+        unset($user);
 
 UNREV:
-            //未领取的
-            foreach($uid_all as $k=>$v1){
-                if(in_array($v1,$uid_complete))
-                    unset($uid_all[$k]);
-            }
+        //未领取的
+        $res_complete = $this->model->selectReplyWithRecord('a.*,b.status as sstatus,b.uid as suid',
+            $w, '', 'a.judge desc,a.atime desc,a.score_time desc');
 
-            if($uid_all){
+        foreach ($res_complete as $val)
+            $uid_complete[] = $val['suid'];
+
+        foreach($uid_all as $k=>$v1){
+            if(in_array($v1,$uid_complete))
+                unset($uid_all[$k]);
+        }
+        if(count($res) < $raw['page_limit'] && $uid_all){
                 $reply_data_extend = [];
                 $user_res = D('Profile')->selectClient('uid,icon,name,nickname,level_id', ['uid' => ['in', $uid_all]]);
-                $user = [];
+                $total= $total[0]['num'];
                 if ($user_res){
-                    $i = 0;
-                    foreach ($user_res as $val) {
-                        if($i >7)
-                            continue;
+                    if($res){
+                        $start = 0;
+                    }else{
+                        $start = abs($total - $raw['page_limit']*($raw['page_start']-1)-count($res));
+                    }
+                    $page_left = $raw['page_limit'] - count($res);
+                    $max = $start+$page_left;
+                    if(($start+$page_left)>count($user_res))
+                        $max = count($user_res);
+
+                    for($i=$start;$i<$max;$i++){
+                        $val = $user_res[$i];
                         $user[$val['uid']] = [
                             'uid'   =>  $val['uid'],
                             'name'  =>  $val['name'],
@@ -1321,30 +1324,23 @@ UNREV:
                         $temp['icon'] = $user[$val['uid']]['icon'];
                         $temp['level']= $user[$val['uid']]['level'];
                         $reply_data_extend[] = $temp;
-                        $i++;
                     }
-
                 }
-
-
             }
-
-
-            if ($total)
-                $ret['total'] = $total[0]['num'];
 
             $fin = [];
             if($reply_data)
                 foreach($reply_data as $v){
                     $fin[] = $v;
                 }
-            $ret['page_n'] = count($fin);
 
             if($fin){
                 $ret['data'] = isset($reply_data_extend)?array_merge($fin,$reply_data_extend):$fin;
             }else{
                 $ret['data'] = isset($reply_data_extend)?$reply_data_extend:[];
             }
+            $ret['page_n'] = count($ret['data']);
+
 END:
             $this->retReturn($ret);
 

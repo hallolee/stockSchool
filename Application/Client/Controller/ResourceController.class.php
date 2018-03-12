@@ -452,7 +452,7 @@ END:
         $d['content'] = isset($raw['content']) ? $raw['content'] : '';
 
         if ($d['reply_id']>0) {
-            $chk = $this->model->findReply('id,top_id', ['id' => $d['reply_id']]);
+            $chk = $this->model->findReply('id,uid,top_id,content', ['id' => $d['reply_id']]);
 
             if (isset($chk['top_id']))
                 $d['top_id'] = ($chk['top_id'] > 0) ? $chk['top_id'] : $d['reply_id'];
@@ -461,6 +461,8 @@ END:
                 $ret['status'] = E_NOEXIST;
                 goto END;
             }
+            $file_exist['title'] = $chk['content'];
+            $file_exist['uid']   = $chk['uid'];
         }else {
             $d['top_id'] = $d['reply_id'];
 
@@ -477,12 +479,15 @@ END:
         $ret['id']     = $add_reply;
 
         //通知消息
-        $location = $this->model->selectReply('count(*) num', ['file_id' => $raw['file_id']]);
+        if($file_exist['uid'] == $this->out['uid'])
+            goto STEP;
+        $location = $this->model->selectReply('count(*) num', ['file_id' => $raw['file_id'],'place'=>0]);
 
         $msg_data = [
             'uid_from'  =>  $this->out['uid'],
             'uid_to'    =>  $file_exist['uid'],
             'reply_id'  =>  $add_reply,
+            'pid'       =>  $raw['file_id'],
             'type'      =>  M_RESOURCE,
             'atime'     =>  time(),
             'title'     =>  $file_exist['title'],
@@ -490,6 +495,7 @@ END:
         ];
         $res_msg = D('Client/Message')->addMessage($msg_data);
         $res_inc = D('Client/Message')->incMessage(['field'=>'resource_n','value'=>1],['uid'=>$file_exist['uid']]);
+STEP:
 
         $ret['status'] = E_OK;
 END:

@@ -21,13 +21,15 @@ class MessageController extends GlobalController
     {
         $raw = $this->RxData;
         $ret = ['total' => 0, 'page_start' => 0, 'page_n' => 0, 'resource_n' => 0, 'forum_n' => 0, 'hwk_n' => 0, 'data' => []];
-
         $page = $raw['page_start'] ? $raw['page_start'] : 1;
         $num = $raw['page_limit'] ? $raw['page_limit'] : 10;
         $limit = $num * ($page - 1) . ',' . $num;
         $ret['page_start'] = $page;
         if ($raw['type']) {
             $where['type'] = $raw['type'];
+            if(in_array($raw['type'],[M_HWK_TE,M_HWK]))
+                $where['type'] = ['in',[M_HWK_TE,M_HWK]];
+
             switch($raw['type']){
                 case M_FORUM:
                     $column = 'forum_n';
@@ -74,6 +76,7 @@ class MessageController extends GlobalController
         $ret['page_n'] = count($ret['data']);
         $ret['data'] = $result ? $result : [];
 
+
         $count = $this->model->selectMessage('count(*) total', $where);
         if ($count)
             $ret['total'] = $count[0]['total'];
@@ -81,8 +84,9 @@ class MessageController extends GlobalController
         //统计数归零
         $clear_res = $this->modelProfile->saveClient(['uid'=>$this->out['uid']],[$column=>0]);
 
-        $this->out['message_n'] -= $this->out[$column];
-        $this->out[$column] = 0;
+        $this->out['notice']['message_n'] -= $this->out[$column];
+        $this->out['notice'][$column ] = 0;
+        $this->out['notice']['hwk_n' ] = 110;
 
         //更新 token
         \Common\ValidDaTokenWrite( $this->out, $raw['token'], TOKEN_APPEND );

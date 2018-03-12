@@ -193,22 +193,30 @@ END:
         foreach($level_info as $v)
             $level[$v['id']] = $v['name'];
 
+
+        $role_info = D('Admin/System')->selectUserRole(
+            '',['group_id'=>ROLE_DB_TEA]);
+        $teacher = [];
+        if($role_info)
+            foreach($role_info as $v)
+                $teacher[$v['uid']] = ROLE_DB_TEA;
+
         switch($raw['type']){
             case 3:
-                $this->showApplyStuList($raw,$level,$where);
+                $this->showApplyStuList($raw,level,$where,$teacher);
                 break;
             case 4:
-                $this->showChangeTeaList($raw,$level,$where);
+                $this->showChangeTeaList($raw,level,$where,$teacher);
                 break;
             case 5:
-                $this->showApplyTeaList($raw,$level,$where);
+                $this->showApplyTeaList($raw,level,$where,$teacher);
                 break;
             case 6:
-                $this->showUpgradeList($raw,$level,$where);
+                $this->showUpgradeList($raw,level,$where,$teacher);
                 break;
             default:
                 $raw['type'] =3;
-                $this->showApplyStuList($raw,$level,$where);
+                $this->showApplyStuList($raw,level,$where,$teacher);
                 break;
         }
 
@@ -221,7 +229,7 @@ END:
      * 申请学员记录列表
      */
 
-    protected function showApplyStuList($raw,$level,$where){
+    protected function showApplyStuList($raw,$level,$where,$teacher){
 
         $ret = ['total' => 0, 'page_start' => 0, 'page_n' => 0, 'data' => []];
 
@@ -265,6 +273,7 @@ END:
 
         foreach($res as $k=>&$v){
             $v['type'] = $raw['type'];
+            $v['role'] = $teacher[$v['uid']];
             $v['ouname']   = $user[$v['o_uid']]['nickname'];
             $v['name']     = $user[$v['uid']]['name'];
             $v['nickname'] = $user[$v['uid']]['nickname'];
@@ -349,7 +358,7 @@ END:
      * 申请成为教员列表
      */
 
-    protected function showApplyTeaList($raw,$level,$where){
+    protected function showApplyTeaList($raw,$level,$where,$teacher){
 
         $ret = ['total' => 0, 'page_start' => 0, 'page_n' => 0, 'data' => []];
 
@@ -393,6 +402,7 @@ END:
         foreach ($res as &$v) {
             $v['type']      = $raw['type'];
             $v['ouname']   = $user[$v['o_uid']]['nickname'];
+            $v['role']    = $teacher[$v['uid']];
             $v['name']   = $user[$v['uid']]['name'];
             $v['nickname'] = $user[$v['uid']]['nickname'];
             $v['teacher_name'] = $user[$v['teacher_uid']]['name'];
@@ -520,7 +530,7 @@ END:
      * 申请变更教员列表
      */
 
-    protected function showChangeTeaList($raw,$level,$where){
+    protected function showChangeTeaList($raw,$level,$where,$teacher){
 
         $ret = ['total' => 0, 'page_start' => 0, 'page_n' => 0, 'data' => []];
 
@@ -552,6 +562,7 @@ END:
 
         foreach ($res as &$re) {
             $re['type'] = $raw['type'];
+            $v['role']  = $teacher[$re['uid']];
             $re['level']    = $level[$re['level_id']];
             $re['ouname']    = $re['o_uid']?$user[$re['o_uid']]['nickname']:'';
             $re['name']     = $user[$re['uid']]['name'];
@@ -633,7 +644,7 @@ END:
      * 为学员升星记录
      */
 
-    protected function showUpgradeList($raw,$level,$where){
+    protected function showUpgradeList($raw,$level,$where,$teacher){
 
         $ret = ['total' => 0, 'page_start' => 0, 'page_n' => 0, 'data' => []];
 
@@ -670,6 +681,7 @@ END:
 
         foreach ($res as &$v) {
             $v['type']      = $raw['type'];
+            $v['role']      = $teacher[$v['uid']];
             $v['ouname']    = $user[$v['o_uid']]['nickname'];
             $v['name']  = $user[$v['uid']]['name'];
             $v['nickname']  = $user[$v['uid']]['nickname'];

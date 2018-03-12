@@ -336,10 +336,11 @@ END:
             goto END;
         }
         if ($d['reply_id']>0) {
-            $chk = $this->model->findReply('id,top_id,place', ['id' => $d['reply_id']]);
+            $chk = $this->model->findReply('id,uid,content,top_id,place', ['id' => $d['reply_id']]);
 
             if (isset($chk['top_id']))
                 $d['top_id'] = ($chk['top_id'] > 0) ? $chk['top_id'] : $d['reply_id'];
+
             $d['place'] = 1;
             if (($chk['place']))
                 $d['place'] += $chk['place'];
@@ -348,6 +349,11 @@ END:
                 $ret['status'] = E_NOEXIST;
                 goto END;
             }
+            $file_exist['title'] = $chk['content'];
+            $file_exist['uid']   = $chk['uid'];
+            $message =  D('Client/Message')->findMessage('',['reply_id'=>$d['reply_id']]);
+            $location_pid = $message['location'];
+
         } else {
             $d['top_id'] = $d['reply_id'];
 
@@ -367,20 +373,23 @@ END:
             goto END;
 
         //通知消息
-        $location = $this->model->selectReply('count(*) num', ['pid' => $id,'status'=>SYS_OK]);
+        if($file_exist['uid'] == $this->out['uid'])
+            goto STEP;
+        $location = $this->model->selectReply('count(*) num', ['pid' => $id,'status'=>SYS_OK,'place'=>0]);
 
         $msg_data = [
             'uid_from'  =>  $this->out['uid'],
             'uid_to'    =>  $file_exist['uid'],
             'reply_id'  =>  $add_reply,
+            'pid'       =>  $id,
             'type'      =>  M_FORUM,
             'atime'     =>  time(),
             'title'     =>  $file_exist['title'],
-            'location'  =>  $location[0]['num'],
+            'location'  =>  isset($location_pid)?$location_pid+1:$location[0]['num']+1,
         ];
         $res_msg = D('Client/Message')->addMessage($msg_data);
         $res_inc = D('Client/Message')->incMessage(['field'=>'forum_n','value'=>1],['uid'=>$file_exist['uid']]);
-
+STEP:
         $ret['status'] = E_OK;
         $ret['id']     = $add_reply;
 END:

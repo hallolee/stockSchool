@@ -49,8 +49,10 @@ class ProfileController extends GlobalController
                 }
 
                 if( $res['teacher_uid'] ){
-                    $teacher = $this->m_m->findClient( 'nickname', [ 'uid' => $res['teacher_uid'] ]);
+                    $teacher = $this->m_m->findClient( 'nickname,phone,qq', [ 'uid' => $res['teacher_uid'] ]);
                     $uinfo['teacher'] = $teacher['nickname'];
+                    $uinfo['teacher_phone'] = $teacher['phone'];
+                    $uinfo['teacher_qq']    = $teacher['qq'];
                 }
 
                 foreach ($res as $key => $value) {
@@ -71,7 +73,12 @@ class ProfileController extends GlobalController
                 }
 
                 $uinfo['role_id'] = serialize($role);
-                $uinfo['message_n'] = $res['forum_n']+$res['hwk_n']+$res['resource_n'];
+                $notice['message_n'] = $res['forum_n']+$res['hwk_n']+$res['resource_n'];
+                $notice['hwk_n'] = $res['hwk_n'];
+                $notice['forum_n'] = $res['forum_n'];
+                $notice['resource_n'] = $res['resource_n'];
+                $uinfo['notice'] = $notice;
+
 
                 //更新 token
                 \Common\ValidDaTokenWrite( $uinfo, $raw['token'], TOKEN_APPEND );
