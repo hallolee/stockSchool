@@ -44,11 +44,45 @@ class MessageModel extends GlobalModel
     }
 
 
+    public function findMessage($column = '', $where = '')
+    {
+
+        $res = M(TMESSAGE)
+            ->field($column)
+            ->where($where)
+            ->find();
+
+        return $res;
+
+    }
+
+
+    public function delMessage($where = '')
+    {
+
+        $res = M(TMESSAGE)
+            ->where($where)
+            ->delete();
+
+        return $res;
+
+    }
+
+
     public function incMessage($data,$where)
     {
         $info = M(TUSER)
             ->where($where)
             ->setInc( $data['field'],$data['value']);
+
+        return $info;
+    }
+
+    public function decMessage($data,$where)
+    {
+        $info = M(TMESSAGE)
+            ->where($where)
+            ->setDec( $data['field'],$data['value']);
 
         return $info;
     }

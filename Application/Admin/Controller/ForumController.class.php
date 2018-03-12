@@ -455,9 +455,19 @@ END:
 
         }
 
-        $res1 = $this->model->delReply($where);
-        $res2 = $this->model->decForum(['field'=>'reply_n','value'=>1],['id'=>$res['pid']]);
+        $res_del_reply = $this->model->delReply($where);
+        $res_dec_count = $this->model->decForum(['field'=>'reply_n','value'=>1],['id'=>$res['pid']]);
 
+        //通知处理
+        $message =  D('Client/Message')->findMessage('',['reply_id'=>$raw['review_id']]);
+        $res_del_message =  D('Client/Message')->delMessage(['reply_id'=>$raw['review_id']]);
+
+        $res_reset_location = D('Client/Message')->decMessage(
+            [
+                'field'=>'location',
+                'value'=>1
+            ],
+            ['location'=>['gt',$message['location']],'pid'=>$message['pid']]);
 
         $ret['status'] = E_OK;
 
