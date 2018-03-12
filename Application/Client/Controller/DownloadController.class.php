@@ -83,8 +83,9 @@ class DownloadController extends GlobalController
 
 
 STP:
+        $Http = new \Org\Net\Http;
         $file_dir = $attach_info['path'];
-        \Common\Download_t($file_dir);
+        $Http::download($file_dir);
 
 
 END:

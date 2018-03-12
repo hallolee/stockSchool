@@ -107,8 +107,7 @@ class DownloadController extends GlobalController
             'G' => "上线昵称",
             'H' => "上线QQ",
             'I' => "下线人数",
-            'J' => "注册时间",
-
+            'J' => "注册时间"
         ];
 
 
@@ -664,6 +663,8 @@ END:
 
         $file_dir = $attach_info['path'];
         \Common\Download_t($file_dir);
+        $Http = new \Org\Net\Http;
+        $Http::download($file_dir);
 END:
         $this->retReturn($ret);
     }
