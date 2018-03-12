@@ -15,7 +15,7 @@ class DownloadController extends GlobalController
 
     public function _initialize($check = true)
     {
-        parent::_initialize($check = false);
+        parent::_initialize($check );
         $this->modelMember   = D('Admin/Membership');
         $this->modelProfile         = D('Admin/Profile');
         $this->modelUser = D('Admin/User');

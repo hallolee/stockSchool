@@ -12,7 +12,7 @@ class DownloadController extends GlobalController
 
     public function _initialize($check = true)
     {
-        parent::_initialize($check = false);
+        parent::_initialize($check);
         $this->modelUser = D('Admin/User');
         $this->model     = D('Admin/Resource');
 
